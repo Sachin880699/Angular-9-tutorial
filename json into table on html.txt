@@ -1,0 +1,61 @@
+===============app.component.ts========================
+
+export class AppComponent {
+
+\\\  I add from here
+
+  
+  ngOnInit () {  }
+
+  // CREATE A JSON ARRAY.
+  employees: any [] = [
+    { 'id': '001', 'name': 'Alpha', 'joinDate': '05/17/2015', 'age': 37 },
+    { 'id': '002', 'name': 'Bravo', 'joinDate': '03/25/2016', 'age': 27 },
+    { 'id': '003', 'name': 'Charlie', 'joinDate': '09/11/2015', 'age': 29 },
+    { 'id': '004', 'name': 'Delta', 'joinDate': '01/07/2016', 'age': 19 },
+    { 'id': '005', 'name': 'Echo', 'joinDate': '03/09/2014', 'age': 32 }
+  ];
+
+  public selectedName:any;
+  
+  public highlightRow(emp) {
+    this.selectedName = emp.name;
+  }
+  
+  
+  
+============================app.component.html==============
+
+
+<div style="text-align:center;width:500px;">
+    <table *ngIf="employees">
+        <thead>
+            <tr>
+                <th>ID</th>
+                    <th>Employee Name</th>
+                        <th>Date of Joining</th>
+                            <th>Age</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let emp of employees;" (mouseover)="highlightRow(emp)"
+                [ngClass] = "{'highlight' : emp.name == selectedName}">
+
+                <td>{{emp.id}}</td>
+                    <td>{{emp.name}}</td>
+                        <td>{{emp.joinDate | date : 'dd/MM/yyyy'}}</td>
+                            <td>{{emp.age}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+====================output=================
+
+ID	Employee Name	Date of Joining	Age
+001	Alpha	17/05/2015	37
+002	Bravo	25/03/2016	27
+003	Charlie	11/09/2015	29
+004	Delta	07/01/2016	19
+005	Echo	09/03/2014	32
+

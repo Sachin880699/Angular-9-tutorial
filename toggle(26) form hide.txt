@@ -1,0 +1,47 @@
+=======================app.componants.html======================
+
+<button (click)="toggle()" id="bt">
+    {{buttonName}}
+</button>
+
+<ng-container *ngIf="show">
+    <div style="margin: 0 auto;text-align: left;">
+        <div>
+            <label>Name:</label>
+            <div><input id="tbname" name="yourname" /></div>
+        </div>
+        <div>
+            <label>Email Address:</label>
+            <div><input name="email" id="email" /></div></div>
+        <div>
+            <label>Additional Information (optional):</label>
+            <div><textarea rows="5" cols="46"></textarea></div>
+        </div>
+    </div>
+</ng-container>
+
+=========================app.components.ts======================
+
+import { Component, OnInit } from '@angular/core';   ////i add OnInit
+
+
+export class AppComponent {
+
+//I add data from here=============================
+
+  public show:boolean = false;
+  public buttonName:any = 'Show';
+
+  ngOnInit () {  }
+
+  toggle() {
+    this.show = !this.show;
+
+    // CHANGE THE NAME OF THE BUTTON.
+    if(this.show)  
+      this.buttonName = "Hide";
+    else
+      this.buttonName = "Show";
+  }
+}
+

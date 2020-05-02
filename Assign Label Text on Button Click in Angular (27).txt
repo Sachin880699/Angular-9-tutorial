@@ -1,0 +1,36 @@
+====================app.component.html=========================
+
+
+Enter a value <input type="text" #tbName id="tbName">
+<p>
+    <button type="submit" (click)="changeLabelName(lblName.id, tbName.value)" id="bt">
+        Click Me
+    </button>
+</p>
+
+<ng-container>
+    <p>
+        <label #lblName id="lblName">
+
+        </label>
+    </p>
+</ng-container>
+
+
+
+
+===================================app.component.ts===================
+import { Component ,OnInit } from '@angular/core';  //I add OnInit
+
+
+
+export class AppComponent {
+
+// I add data from here-----
+
+  ngOnInit () {  }
+
+  changeLabelName(lbl, val) {
+    document.getElementById(lbl).innerHTML = val;
+  }  
+
