@@ -1,0 +1,29 @@
+that's mean jar apan front end la change kele tar variable pan change hoil
+
+=====================app.componant.ts=================
+
+name="sachin";
+
+
+
+===========================app.module.ts============
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+
+imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserModule,
+    ReactiveFormsModule,               
+    FormsModule,               //Add this one
+   
+   
+   
+==========================app.componant.html=========================
+
+
+<input type="text" [(ngModel)]='name'>
+
+{{name}}
+
