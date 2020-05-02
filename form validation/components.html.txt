@@ -1,0 +1,19 @@
+<form [formGroup]='tutInfo' (ngSubmit)="onSubmit(tutInfo.value)">
+    <input type="text" formControlName="user">
+<div *ngIf="user.invalid && (user.dirty || user.touched)">
+   Invalid username 
+</div>
+    
+
+
+<br>
+    <br>
+    <input type="text" formControlName='address'>
+    <div *ngIf="address.invalid && (user.dirty || address.touched)">
+        Invalid address 
+     </div>
+    <br>
+    <br>
+    <button type="submit">submit</button>
+
+</form>

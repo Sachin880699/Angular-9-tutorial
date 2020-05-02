@@ -1,0 +1,53 @@
+command for creating service
+
+CMD === ng g service test
+
+
+
+====================app.module.ts===========================
+
+
+import {TestService} from './test.service'
+
+
+],
+  providers: [TestService],      /////Add only TestService
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+
+
+==========================app.componant.ts=====================
+
+import { TestService } from './test.service';    ////Add this new line
+
+export class AppComponent {
+  
+  constructor()
+  {
+    let t1 = new TestService
+  }
+
+====================test.service.ts=======================
+
+export class TestService {
+
+  constructor() { }        //I add this line
+  printCase()              //I add this line
+  {
+    console.warn("service han been called") //I add this line
+  }                                        //I add this line
+}  
+
+
+=========================app.componant.ts========================
+
+export class AppComponent {
+  
+  constructor()
+  {
+    let t1 = new TestService
+    t1.printCase()          //Add this line
+  }
+  
+

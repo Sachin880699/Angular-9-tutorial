@@ -1,0 +1,98 @@
+=====================Point==========================
+
+whiat is api
+make service
+register it
+call it in the component
+use data
+display list
+
+
+====================for create a service =================
+
+CMD===============ng g service post
+
+
+===================post.service.ts===============
+
+import {HttpClient} from '@angular/common/http'
+
+
+
+
+
+export class PostService {
+
+\\\\\\\\\\\\\\\\\\\\add data from here
+
+url ='https://jsonplaceholder.typicode.com/posts'
+  constructor(private http:HttpClient) { }
+  getPostData()
+  {
+    return this.http.get(this.url)
+  }
+}
+
+
+
+
+=========================app.module.ts==============================
+import {PostService} from './post.service';
+import {HttpClientModule} from '@angular/common/http';
+
+
+
+
+
+
+
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserModule,
+    ReactiveFormsModule,
+    HttpClientModule,              ////Add this in import 
+
+
+=================================================================
+                              data show in html
+=================================================================
+
+                     app.component.ts
+                     
+=================================================================
+
+export class AppComponent {
+  
+
+
+
+  constructor(private post:PostService){}
+  posts = {}                      ////////Add this new line
+
+  ngOnInit()
+  {
+    this.post.getPostData().subscribe((resp)=>{
+      console.warn('resp',resp)
+      this.posts=resp                 ///////////////add this new line
+    })
+  }
+
+
+ ],
+  providers: [PostService],              
+  bootstrap: [AppComponent]
+})
+
+
+===================================app.component.html==========================
+
+
+<ul>
+    <li *ngFor='let post of posts'>
+{{post.title}}
+    </li>
+</ul>
+
+
+

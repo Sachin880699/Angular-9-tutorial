@@ -1,0 +1,21 @@
+<div class="container">
+    <h1>10 Digit Mobile Number Validation in Angular - ItSolutionStuff.com</h1>
+      
+    <form [formGroup]="form" (ngSubmit)="submit()">
+          
+        <div class="form-group">
+            <label for="mobileNumber">Mobile Number</label>
+            <input 
+                formControlName="mobileNumber"
+                id="mobileNumber" 
+                type="text" 
+                class="form-control">
+            <div *ngIf="f.mobileNumber.touched && f.mobileNumber.invalid" class="alert alert-danger">
+                <div *ngIf="f.mobileNumber.errors.required">Mobile Number is required.</div>
+                <div *ngIf="f.mobileNumber.errors.pattern">Please, Enter 10 digit Mobile Number.</div>
+            </div>
+        </div>
+      
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+    </form>
+</div>

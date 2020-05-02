@@ -1,0 +1,76 @@
+
+for creating child component
+
+command ==== ng g c child-components
+
+
+=========================app.componants.html=========
+<app-child-component> </app-child-component>        //tyachyat taka
+
+
+
+======================app.componants.ts================
+
+heros="superman";
+
+
+
+============================app.componants.html==============
+
+<app-child-component [hero]='heros'></app-child-component>
+
+
+
+
+=============                       ===========================
+=============  child-componants.ts  ===========================
+=============                       ===========================
+
+import { Component, OnInit ,Input} from '@angular/core';     //Input    (add kara)
+
+
+
+export class ChildComponentComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+@Input() public hero;       //////End la avdi line addddddddd
+}
+
+
+=====================child-componants.html==========================
+=====================                     ==========================
+
+{{hero}}
+
+
+
+========================================================================
+========================================================================
+                For pass list 
+========================================================================
+========================================================================
+                        app.componants.ts
+                        
+                        
+                        
+                        
+heros=['superman','spiderman','ant man','thor','iron man']
+
+
+================================app.componants.html========================
+
+
+
+<app-child-component *ngFor='let i of heros' [hero]='i'></app-child-component>
+
+
+
+=================================other is same
+
+
+
+
+

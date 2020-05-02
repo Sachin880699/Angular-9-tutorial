@@ -1,0 +1,39 @@
+import { Component } from '@angular/core';
+
+import { FormBuilder, Validators } from '@angular/forms'
+import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
+import { __values } from 'tslib';
+
+
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+
+  tutInfo;
+
+  constructor(private formBuild: FormBuilder) {
+    this.tutInfo = this.formBuild.group({
+      user: ['', Validators.required],
+      address: ['', [Validators.required, Validators.minLength(5)]]
+
+    })
+  }
+  onSubmit(values) {
+    console.warn('form submit', values)
+    if(this.tutInfo.status=='INVALID'){
+      alert('input not valid')
+    }
+    else{
+      console.warn(values)
+    }
+
+  }
+  get user(){return this.tutInfo.get('user')}
+  get address(){return this.tutInfo.get('address')}
+
+}
+

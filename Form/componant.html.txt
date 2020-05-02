@@ -1,0 +1,11 @@
+<form [formGroup]='tutInfo' (ngSubmit)="onSubmit(tutInfo.value)">
+    <input type="text" formControlName='user'>
+    <input type="text" formControlName='address'>
+
+    <button type="submit">submit</button>
+
+
+
+
+
+</form>

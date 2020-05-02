@@ -1,0 +1,50 @@
+=========================for creating a service===================
+
+ng g service test
+
+
+===============app.module.ts=======================
+import {TestService} from './test.service'
+
+
+
+
+
+  providers: [TestService],            //I add TestService
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+
+
+=======================test.service.ts===============================
+
+export class TestService {
+
+  constructor() { }                  //add from here 
+  callMockAPI()
+  {
+    console.warn('callMockAPI is called')
+  }                                               ///To here
+}
+
+
+
+
+==============================app.component.ts===========================
+
+import { TestService } from './test.service'         //Add this line
+
+
+
+export class AppComponent {
+  
+  
+  constructor(ts:TestService)               //Add this line
+  {
+    ts.callMockAPI()
+  }                                           //Add line to here
+  
+  
+  
+  
+  

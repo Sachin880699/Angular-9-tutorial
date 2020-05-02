@@ -1,0 +1,29 @@
+=================app.componants.ts==============
+
+colorCode = "green"
+
+
+===============app.componants.html=============
+
+<h1 style="color: blue;">Style Binding</h1>
+
+
+<h1 [style.color]="'red'">Style Binding example</h1>
+
+<h1 [style.color]="colorCode">Style Binding example</h1>
+
+
+
+==========================================================
+=========================================================
+====================condition state madhe=============
+
+=======================app.componants.ts=======
+
+ error = true
+ 
+ 
+ ===================app.componants.html=================
+ 
+ 
+<h1 [style.color]="error?'red':'green'">Style Binding example</h1>

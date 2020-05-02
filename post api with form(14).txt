@@ -1,0 +1,69 @@
+==========================Life Cycle Hook======================
+
+CMD == ng g component child-cmp
+
+
+==========================app.componant.ts================
+
+data="sachin";
+
+
+
+
+==========================app.componant.ts================
+
+<app-child-cmp data={{data}}></app-child-cmp>
+
+
+========================child-componant.ts================
+import { Component, OnInit,Input } from '@angular/core';    ////Input      add
+
+
+export class ChildCmpComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+  @Input() public data;           ////////////////Add this line
+
+}
+
+
+======================child-componant.html============================
+<p>child-cmp works!</p>
+<h1>{{data}}</h1>
+
+
+
+
+=====================button war click kelyavar change hoil============
+======================================================================
+
+
+========================app.componant.html============================
+
+<button (click) ='updateData()'>Change</button>
+
+
+
+=============================app.componant.ts=========================
+
+export class AppComponent {
+  
+  data="sachin";
+
+  updateData()                    //I add this line down
+  {
+    this.data='Pawar'
+  }
+  
+  
+
+}
+
+
+
+
+
+
