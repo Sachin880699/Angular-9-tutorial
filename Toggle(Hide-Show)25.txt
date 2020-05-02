@@ -1,0 +1,34 @@
+toggle mean jay  apan buton var click kele tar name hide hoil  
+kiwa image var click kele tar image hide hoil
+
+==================================================================
+
+========================app.component.ts========================
+export class AppComponent {
+
+
+// i add data from here
+
+  showMe:boolean=true
+  ngOnInit()
+  {
+    
+    
+  }
+  doToggle()
+  {
+    this.showMe=!this.showMe
+  }
+
+}
+
+===========================app.componentt.html====================
+
+<br/>
+<br/>
+<br/>
+
+<button (click)='doToggle()'>Toogle Tag</button>
+
+
+<h2 *ngIf='showMe'>Toggle me</h2>
