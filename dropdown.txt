@@ -1,0 +1,54 @@
+=============================app.module.ts======================
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; //I add this (ReactiveFormsModule)
+
+
+imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserModule,
+    ReactiveFormsModule,               //Add this one
+
+
+
+===========================app.component.ts=======================
+
+import { Component } from '@angular/core';  //and we should have this one
+import { FormBuilder, Validators ,FormGroup, FormControl} from '@angular/forms'   //we should have(FormBuilder)
+
+
+
+export class AppComponent {
+  
+
+\\\\\\\\\\\\\\\\\from here\\\\\\\\\\
+
+
+  oppoSuits: any = ['Men', 'Women', 'Boys', 'Inspiration']
+
+  constructor(public fb: FormBuilder) { }
+
+  oppoSuitsForm = this.fb.group({
+    name: ['']
+  })
+
+  onSubmit() {
+    alert(JSON.stringify(this.oppoSuitsForm.value))
+  }
+
+}
+
+
+
+=============================== app.component.html===============================
+app.component.html
+<form [formGroup]="oppoSuitsForm" (ngSubmit)="onSubmit()">
+
+  <select formControlName="name">
+    <option disabled>Select Oppo Suits</option>
+    <option>Choose oppo suit</option>
+    <option *ngFor="let suit of oppoSuits">{{suit}}</option>
+  </select>
+
+  <button>Submit</button>
+</form>

@@ -1,0 +1,77 @@
+===========================app.modules.ts========================
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; //I add this
+
+
+
+
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserModule,
+    ReactiveFormsModule,                 //I add this  line
+    
+
+=========================app.component.html=======================
+
+<div class="container">
+    <h1>Angular CheckBox Example - ItSolutionStuff.com</h1>
+        
+    <form [formGroup]="form" (ngSubmit)="submit()">
+            
+        <div class="form-group">
+            <label for="website">Website:</label>
+            <div *ngFor="let web of websiteList">
+              <label>
+                <input type="checkbox" [value]="web.id" (change)="onCheckboxChange($event)" />
+                {{web.name}}
+              </label>
+            </div>
+        </div>
+        
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+    </form>
+</div>
+
+=================================app.componants.ts=============
+
+import { FormBuilder, Validators ,FormGroup, FormControl, FormArray} from '@angular/forms'    //I add this one (FormArray)
+
+
+
+
+export class AppComponent {
+    //-----------------------------code is from here
+  form: FormGroup;
+  websiteList: any = [
+    { id: 1, name: 'ItSolutionStuff.com' },
+    { id: 2, name: 'HDTuto.com' },
+    { id: 3, name: 'NiceSnippets.com' }
+  ];
+  
+  constructor(private formBuilder: FormBuilder) {
+    this.form = this.formBuilder.group({
+      website: this.formBuilder.array([], [Validators.required])
+    })
+  }
+    
+  onCheckboxChange(e) {
+    const website: FormArray = this.form.get('website') as FormArray;
+  
+    if (e.target.checked) {
+      website.push(new FormControl(e.target.value));
+    } else {
+       const index = website.controls.findIndex(x => x.value === e.target.value);
+       website.removeAt(index);
+    }
+  }
+    
+  submit(){
+    console.log(this.form.value);
+  }
+  
+
+}
+
+
+

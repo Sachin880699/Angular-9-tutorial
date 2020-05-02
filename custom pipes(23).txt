@@ -1,0 +1,15 @@
+===================pipe==============
+
+what is pipe
+make custom pipes
+write code in custom pipe file
+use it
+
+==================Build custom pipe==============
+
+CMD for create custom pipe
+
+CMD ==  ng g pipe reversePipe
+
+
+

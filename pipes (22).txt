@@ -1,0 +1,21 @@
+what is pipes
+sysntax string | pipeNmae
+
+========================================
+==================app.components.html=====================
+
+{{"sachin"|uppercase}}    //This will show ans in uppercse (SACHIN )
+
+<h1>{{data|titlecase}}</h1>
+
+
+<h1>{{name|slice:3}}</h1>
+
+<h1>{{name|slice:2:6}}</h1>
+
+<h1>{{birthday|date}}</h1>
+
+<h1>{{birthday|date:'fullDate'}}</h1>
+
+<h1>{{birthday|date:'fullDate'|uppercase}}</h1>
+

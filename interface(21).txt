@@ -1,0 +1,41 @@
+====================create service====
+
+ng g service user
+
+
+==============================user.service.ts==========
+
+import { Injectable } from '@angular/core';
+
+//i add this to ----------
+interface UserType{
+  name:string,
+  email:string,
+  age:number,
+  indian:boolean
+}
+--------------
+
+
+@Injectable({
+  providedIn: 'root'
+})
+export class UserService {
+
+///// I add from here
+
+
+  getUserData()
+  {
+    const data:UserType[]=[
+      {
+        name:'sachin',
+        email:"sachin@gmail.com",
+        age:30,
+        indian:true
+      }
+    ]
+    return data;
+  }
+}
+
