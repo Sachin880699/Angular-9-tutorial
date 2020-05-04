@@ -1,0 +1,51 @@
+make a child component
+pass functioin from parent to child
+call function in child and return value to parent component
+
+
+
+
+========================make a new component.ts============================
+
+CMD ==>   ng g c users
+
+=======================app.component.ts====================================
+
+export class AppComponent {
+
+//I add data from here=====
+  
+  parentComponnent(data)
+  {
+    console.warn(data)
+  }
+  
+  
+====================app.component.html====================================
+
+<h1>Home</h1>
+
+
+<app-users (callParentFunction)='parentComponnent($event)'></app-users>
+
+
+===================user.ccomponent.ts================================
+
+import { Component, OnInit,Output,EventEmitter } from '@angular/core';     // we add Output,EvenEmitter
+
+
+export class UsersComponent implements OnInit {
+
+//I add data from here
+
+
+constructor() { }
+@Output() callParentFunction:EventEmitter<any>= new EventEmitter<any>();
+  ngOnInit(): void {
+    this.callParentFunction.emit('data from chile');
+  }
+
+
+
+============================user.component.html==============
+<h1>This is user commponant page</h1>s
