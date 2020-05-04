@@ -1,0 +1,48 @@
+================Routing==========================
+
+jar starting la routing add keli asel tar ok otherwise 
+
+for create a routing
+
+CMD  === ng generate module app-routing --flat --module=app
+
+
+===================app.routing.module.ts=======================
+
+import {UserComponent} from './user/user.component'   //I dd this
+import {UserDetailsComponent} from './user-details/user-details.component' //I dd this
+
+const routes: Routes = [            //from here too 
+  {
+    path:"user",
+    component:UserComponent
+  },
+  {
+    path:"detail",
+    component:UserDetailsComponent
+  },                        //////////Here
+  
+];
+
+
+============================app.component.html========================
+
+<h1>Hello this is home page</h1>
+
+
+<a routerLink="/user">user page</a>
+
+
+<router-outlet></router-outlet>
+
+==================================================================
+
+routing mhanje linke yeil tya var click kele tar link change hoile
+
+localhost:4200 asel and 
+
+(user page) war click kele tar 
+
+localhost:4200/user
+
+ase disel

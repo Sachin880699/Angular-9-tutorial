@@ -1,0 +1,15 @@
+===================================================================
+maek a component for 404 page
+add wildcard route for
+make hoem component
+add some style
+
+
+
+
+
+CMD ====ng g c page-not-found -it -is
+
+
+
+

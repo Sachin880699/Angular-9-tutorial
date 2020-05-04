@@ -1,0 +1,30 @@
+=======================================Directive========================
+
+CMD == ==ng g directive customStyle
+
+
+======================sustom-style.directive.ts=========================
+*)   (appCustomStyle) ha sustom-style.directive.ts uchlun 
+
+<h1 sustom-style.directive.ts>This is custom tag</h1>
+
+taka
+
+
+
+import { Directive,ElementRef } from '@angular/core';  //I add ElementRef
+
+@Directive({
+  selector: '[appCustomStyle]'
+})
+export class CustomStyleDirective {
+
+  constructor(private el:ElementRef) {    //add  private el:ElementRef
+    el.nativeElement.style.color='red'    //this line
+   }
+
+}
+
+
+====================output==============================
+ata h1 tag cha color red hoil

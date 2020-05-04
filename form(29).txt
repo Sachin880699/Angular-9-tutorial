@@ -1,0 +1,55 @@
+======================Form Type================
+
+1) Reactive Form         = yache validation apan components.ts madhe karto
+2) Template Driven Form  = yache validation apan components.html madhe karto
+
+
+
+how data flow work
+          
+          
+          Form
+          |
+          |
+          ts. file
+          |
+          |
+          service
+          |
+          |
+          server
+          
+=========================================================================
+template driven form
+import form module in app.module file
+write html form in component.html file
+get data in component.ts file
+
+=================app.module.ts=====================
+import {FormsModule} from '@angular/forms'
+
+
+ add (FormsModule)  in import 
+ 
+=================app.component.ts=================================
+
+export class AppComponent {
+  
+//////i add from here
+
+  onSubmit(data)
+  {
+console.warn(data);
+  }
+  
+  
+=================app.component.html=================================
+<form #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)">
+    <input type="text" name='email' ngModel>
+    <br>
+    <br>
+    <input type="password" name='password' ngModel>
+    <br>
+    <br>
+    <button type="submit">Submit</button>
+</form>
